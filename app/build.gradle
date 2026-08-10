@@ -1,0 +1,66 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.doctopdf'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.doctopdf"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    packagingOptions {
+        resources {
+            excludes += ['META-INF/DEPENDENCIES', 'META-INF/LICENSE', 'META-INF/LICENSE.txt',
+                         'META-INF/NOTICE', 'META-INF/NOTICE.txt', 'META-INF/ASL2.0',
+                         'META-INF/*.kotlin_module']
+        }
+    }
+}
+
+configurations.all {
+    resolutionStrategy {
+        force 'org.apache.poi:poi:5.2.3'
+        force 'org.apache.poi:poi-ooxml:5.2.3'
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.11.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.activity:activity:1.8.2'
+
+    // Apache POI para leer Word, Excel, PowerPoint
+    implementation('org.apache.poi:poi:5.2.3') {
+        exclude group: 'org.apache.xmlbeans', module: 'xmlbeans'
+    }
+    implementation('org.apache.poi:poi-ooxml:5.2.3') {
+        exclude group: 'org.apache.xmlbeans', module: 'xmlbeans'
+    }
+    implementation 'org.apache.xmlbeans:xmlbeans:5.1.1'
+
+    // iText para crear PDFs
+    implementation 'com.itextpdf:itext7-core:7.2.5'
+
+    // MultiDex
+    implementation 'androidx.multidex:multidex:2.0.1'
+}

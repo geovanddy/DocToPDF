@@ -1,0 +1,6 @@
+-keep class org.apache.poi.** { *; }
+-keep class com.itextpdf.** { *; }
+-dontwarn org.apache.poi.**
+-dontwarn com.itextpdf.**
+-dontwarn org.bouncycastle.**
+-dontwarn org.slf4j.**

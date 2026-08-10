@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <!-- Header -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📄 DocToPDF"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@color/primary"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Convierte Word, Excel o PowerPoint a PDF\nsin publicidad — abre directo en Google Drive"
+            android:textSize="14sp"
+            android:textColor="@color/text_secondary"
+            android:gravity="center"
+            android:layout_marginBottom="40dp"/>
+
+        <!-- Drop Zone / File Icon Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/card_bg"
+            android:layout_marginBottom="24dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="32dp">
+
+                <ImageView
+                    android:id="@+id/iv_file_icon"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/ic_file"
+                    android:layout_marginBottom="16dp"/>
+
+                <TextView
+                    android:id="@+id/tv_filename"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ningún archivo seleccionado"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_secondary"
+                    android:gravity="center"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:id="@+id/tv_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Selecciona un archivo para comenzar"
+                    android:textSize="13sp"
+                    android:textColor="@color/text_hint"
+                    android:gravity="center"/>
+
+                <ProgressBar
+                    android:id="@+id/progress_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginTop="12dp"
+                    android:indeterminateTint="@color/primary"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Botón Seleccionar -->
+        <Button
+            android:id="@+id/btn_select_file"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="📂  Seleccionar archivo"
+            android:textSize="16sp"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/primary"
+            android:layout_marginBottom="12dp"
+            style="@style/Widget.MaterialComponents.Button"/>
+
+        <!-- Botón Google Drive -->
+        <Button
+            android:id="@+id/btn_open_drive"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="🔵  Abrir en Google Drive"
+            android:textSize="16sp"
+            android:textColor="@color/primary"
+            android:backgroundTint="@color/button_secondary"
+            android:enabled="false"
+            android:layout_marginBottom="32dp"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+
+        <!-- Info formatos -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="@color/info_bg">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Formatos soportados"
+                    android:textStyle="bold"
+                    android:textSize="13sp"
+                    android:textColor="@color/text_primary"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📝  Word     →  .doc  /  .docx\n📊  Excel    →  .xls  /  .xlsx\n📑  PowerPoint  →  .ppt  /  .pptx"
+                    android:textSize="13sp"
+                    android:textColor="@color/text_secondary"
+                    android:lineSpacingExtra="6dp"
+                    android:fontFamily="monospace"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sin publicidad · Conversión local · 100% privado"
+            android:textSize="11sp"
+            android:textColor="@color/text_hint"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="16dp"/>
+
+    </LinearLayout>
+</ScrollView>
