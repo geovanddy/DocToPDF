@@ -35,9 +35,10 @@ jobs:
       - name: Dar permisos y compilar
         run: |
           chmod +x gradlew
-          curl -sL -o gradle/wrapper/gradle-wrapper.jar \
-            "https://github.com/gradle/gradle/raw/v8.4.0/gradle/wrapper/gradle-wrapper.jar"
-          ./gradlew assembleDebug --stacktrace
+          wget -q https://services.gradle.org/distributions/gradle-8.4-bin.zip -O /tmp/gradle.zip
+          unzip -q /tmp/gradle.zip -d /tmp/gradle-dist
+          export PATH="/tmp/gradle-dist/gradle-8.4/bin:$PATH"
+          gradle assembleDebug --stacktrace
 
       - name: Subir APK
         uses: actions/upload-artifact@v4
